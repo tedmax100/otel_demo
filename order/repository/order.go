@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"context"
+
 	"github.com/jmoiron/sqlx"
 	"go.uber.org/fx"
 )
@@ -19,8 +21,10 @@ func NewOrderRepository(db *sqlx.DB) *OrderRepository {
 	}
 }
 
-func (r *OrderRepository) SubmitOrder() {
-
+func (r *OrderRepository) SubmitOrder(ctx context.Context) error {
+	_, err :=	r.db.ExecContext(ctx, `INSERT INTO order (buyer_id, buyer_name, products, state, payment_info, created_at, updated_at)
+	`)
+	return err
 }
 
 func (r *OrderRepository) OrderInventoryValidated() {

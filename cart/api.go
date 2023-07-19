@@ -24,5 +24,5 @@ func (c *CartController) AddItemToCart(ctx *gin.Context) {
 }
 
 func (c *CartController) GetCart(ctx *gin.Context) {
-
+	// c.repo.GetCart(ctx.Request.Context(), )
 }

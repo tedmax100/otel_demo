@@ -15,7 +15,7 @@ type Order struct {
 	State       uint8
 	PaymentInfo paymentEntity.Payment
 	CreatedAt   time.Time
-	UpdatedAt   time.Time
+	UpdatedAt   *time.Time
 }
 
 func (o *Order) CreateOrder(c *gin.Context) {
